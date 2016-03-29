@@ -1,35 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context="com.note.learn.MainActivity">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <android.support.design.widget.AppBarLayout
+    <com.ecloud.pulltozoomview.PullToZoomScrollViewEx
+        android:id="@+id/pull_zoom_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tab_layout"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_above="@+id/tab_layout"
+        android:background="@color/color_divider"/>
+
+    <RadioGroup
+        android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_alignParentBottom="true"
+        android:background="@color/color_gray"
+        android:orientation="horizontal"
+        android:padding="4dp">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <RadioButton
+            android:id="@+id/rb_record"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"/>
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/navigation_record"
+            android:textColor="@color/color_black"
+            android:textSize="16sp"/>
 
-    </android.support.design.widget.AppBarLayout>
+        <RadioButton
+            android:id="@+id/rb_analysis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/navigation_analysis"
+            android:textColor="@color/color_black"
+            android:textSize="16sp"/>
 
-    <include layout="@layout/content_main"/>
+        <RadioButton
+            android:id="@+id/rb_mine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/navigation_mine"
+            android:textColor="@color/color_black"
+            android:textSize="16sp"/>
+    </RadioGroup>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email"/>
-
-</android.support.design.widget.CoordinatorLayout>
+</RelativeLayout>
