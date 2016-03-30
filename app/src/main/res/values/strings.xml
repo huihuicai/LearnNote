@@ -5,4 +5,5 @@
     <string name="navigation_record">记录</string>
     <string name="navigation_analysis">分析</string>
     <string name="navigation_mine">我的</string>
+    <string name="count_down_day">倒计时&#160;&#160;%1$d&#160;&#160;天</string>
 </resources>

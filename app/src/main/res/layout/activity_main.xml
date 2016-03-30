@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout style="@style/system_bar_tint"
+                xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -7,6 +8,8 @@
         android:id="@+id/pull_zoom_scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:background="@color/color_gray_bg"
         android:layout_above="@+id/tab_layout"/>
 
     <View
@@ -20,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/color_gray"
+        android:background="@color/color_gray_bg"
         android:orientation="horizontal"
         android:padding="4dp">
 
@@ -29,11 +32,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@null"
             android:button="@null"
+            android:checked="true"
+            android:drawableTop="@drawable/btn_record_selector"
             android:gravity="center"
-            android:padding="8dp"
             android:text="@string/navigation_record"
-            android:textColor="@color/color_black"
+            android:textColor="@drawable/tab_color_selector"
             android:textSize="16sp"/>
 
         <RadioButton
@@ -41,11 +46,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@null"
             android:button="@null"
+            android:drawableTop="@drawable/btn_anslysis_selector"
             android:gravity="center"
-            android:padding="8dp"
             android:text="@string/navigation_analysis"
-            android:textColor="@color/color_black"
+            android:textColor="@drawable/tab_color_selector"
             android:textSize="16sp"/>
 
         <RadioButton
@@ -53,11 +59,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@null"
             android:button="@null"
+            android:drawableTop="@drawable/btn_mine_selector"
             android:gravity="center"
-            android:padding="8dp"
             android:text="@string/navigation_mine"
-            android:textColor="@color/color_black"
+            android:textColor="@drawable/tab_color_selector"
             android:textSize="16sp"/>
     </RadioGroup>
 

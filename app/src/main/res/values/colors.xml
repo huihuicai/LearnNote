@@ -5,7 +5,8 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="color_black">#484848</color>
-    <color name="color_gray">#EDEDED</color>
-    <color name="color_divider">#d2d2d2</color>
-
+    <color name="color_divider">#E3E3E3</color>
+    <color name="color_gray_bg">#F3F3F3</color>
+    <color name="color_gray">#A9B7B7</color>
+    <color name="color_red">#EB4F38</color>
 </resources>
