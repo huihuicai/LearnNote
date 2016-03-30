@@ -56,7 +56,7 @@
             android:background="@color/color_divider"/>
 
         <RelativeLayout
-            android:id="@+id/rl_learn_book_plans"
+            android:id="@+id/rl_course_plans"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp">
@@ -148,7 +148,7 @@
         android:orientation="vertical">
 
         <RelativeLayout
-            android:id="@+id/rl_learn_book_record"
+            android:id="@+id/rl_course_record"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp">

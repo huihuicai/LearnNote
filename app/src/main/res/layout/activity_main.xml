@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout style="@style/system_bar_tint"
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+<RelativeLayout
+    style="@style/system_bar_tint"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <com.ecloud.pulltozoomview.PullToZoomScrollViewEx
         android:id="@+id/pull_zoom_scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none"
+        android:layout_above="@+id/tab_layout"
         android:background="@color/color_gray_bg"
-        android:layout_above="@+id/tab_layout"/>
+        android:scrollbars="none"/>
 
     <View
         android:layout_width="match_parent"
@@ -39,7 +40,7 @@
             android:gravity="center"
             android:text="@string/navigation_record"
             android:textColor="@drawable/tab_color_selector"
-            android:textSize="16sp"/>
+            android:textSize="14sp"/>
 
         <RadioButton
             android:id="@+id/rb_analysis"
@@ -52,7 +53,7 @@
             android:gravity="center"
             android:text="@string/navigation_analysis"
             android:textColor="@drawable/tab_color_selector"
-            android:textSize="16sp"/>
+            android:textSize="14sp"/>
 
         <RadioButton
             android:id="@+id/rb_mine"
@@ -65,7 +66,7 @@
             android:gravity="center"
             android:text="@string/navigation_mine"
             android:textColor="@drawable/tab_color_selector"
-            android:textSize="16sp"/>
+            android:textSize="14sp"/>
     </RadioGroup>
 
 </RelativeLayout>
