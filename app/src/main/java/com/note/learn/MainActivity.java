@@ -20,7 +20,7 @@ import com.note.learn.utils.ScreenUtil;
 import java.util.Calendar;
 import java.util.TimeZone;
 
-public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {
+public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener, View.OnClickListener {
 
     private FrameLayout mContentLayout;
     private TextView mTvCountDown, mTvCurrentDay, mTvCurrentMonth, mTvCurrentWeek, mTvWipeCard;
@@ -57,6 +57,10 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         mTvCurrentDay = (TextView) header.findViewById(R.id.tv_current_day);
         mTvCurrentMonth = (TextView) header.findViewById(R.id.tv_current_month);
         mTvCurrentWeek = (TextView) header.findViewById(R.id.tv_current_week);
+
+        header.findViewById(R.id.btn_calendar).setOnClickListener(this);
+        header.findViewById(R.id.btn_share).setOnClickListener(this);
+        header.findViewById(R.id.tv_swipe_card).setOnClickListener(this);
     }
 
     private void initDate() {
@@ -114,6 +118,18 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
             mTransaction = getSupportFragmentManager().beginTransaction();
             mTransaction.replace(R.id.content_layout, fragment);
             mTransaction.commitAllowingStateLoss();
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_calendar:
+                break;
+            case R.id.btn_share:
+                break;
+            case R.id.tv_swipe_card:
+                break;
         }
     }
 }
