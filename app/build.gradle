@@ -30,4 +30,6 @@ dependencies {
     compile 'com.android.support:design:23.2.0'
     compile 'com.github.frank-zhu:pullzoomview:1.0.0'
     compile 'com.github.PhilJay:MPAndroidChart:v2.2.3'
+    //状态栏沉浸模式
+    compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
 }

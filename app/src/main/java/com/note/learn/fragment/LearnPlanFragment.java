@@ -7,16 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.note.learn.R;
-
 /**
- * Created by wanghui on 2016/3/30.
+ * Created by wanghui on 2016/3/31.
  */
-public class AnaslysisFragment extends Fragment {
+public class LearnPlanFragment extends Fragment {
 
+    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_anaslysis,container,false);
-        return view;
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 }

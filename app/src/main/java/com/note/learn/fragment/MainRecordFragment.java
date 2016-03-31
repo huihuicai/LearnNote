@@ -9,16 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.note.learn.R;
-import com.note.learn.activity.CoursePlanActivity;
-import com.note.learn.activity.CourseRecordActivity;
-import com.note.learn.activity.LearnPlanActivity;
-import com.note.learn.activity.PracticePlanActivity;
-import com.note.learn.activity.PracticeRecordActivity;
+import com.note.learn.activity.BaseActivity;
+import com.note.learn.enums.ActivityType;
+import com.note.learn.utils.Constant;
 
 /**
  * Created by wanghui on 2016/3/30.
  */
-public class RecordFragment extends Fragment implements View.OnClickListener {
+public class MainRecordFragment extends Fragment implements View.OnClickListener {
 
     @Nullable
     @Override
@@ -38,26 +36,26 @@ public class RecordFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        Intent intent;
+        Intent intent = new Intent(getActivity(), BaseActivity.class);
         switch (v.getId()) {
             case R.id.rl_learn_plans:
-                intent = new Intent(getActivity(), LearnPlanActivity.class);
+                intent.putExtra(Constant.ACTIVITY_TYPE, ActivityType.LearnPlan);
                 startActivity(intent);
                 break;
             case R.id.rl_course_plans:
-                intent = new Intent(getActivity(), CoursePlanActivity.class);
+                intent.putExtra(Constant.ACTIVITY_TYPE, ActivityType.CoursePlan);
                 startActivity(intent);
                 break;
             case R.id.rl__practice_plans:
-                intent = new Intent(getActivity(), PracticePlanActivity.class);
+                intent.putExtra(Constant.ACTIVITY_TYPE, ActivityType.PracticePlan);
                 startActivity(intent);
                 break;
             case R.id.rl_course_record:
-                intent = new Intent(getActivity(), CourseRecordActivity.class);
+                intent.putExtra(Constant.ACTIVITY_TYPE, ActivityType.CourseRecord);
                 startActivity(intent);
                 break;
             case R.id.rl__practice_record:
-                intent = new Intent(getActivity(), PracticeRecordActivity.class);
+                intent.putExtra(Constant.ACTIVITY_TYPE, ActivityType.PracticeRecord);
                 startActivity(intent);
                 break;
         }
