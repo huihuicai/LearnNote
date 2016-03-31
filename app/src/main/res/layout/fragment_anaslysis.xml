@@ -1,15 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="数据分析正在设计，敬请期待！"
-        android:textColor="@color/color_black"
-        android:textSize="20sp"/>
+        android:layout_marginTop="@dimen/fab_margin"
+        android:layout_marginBottom="@dimen/fab_margin"
+        android:background="@android:color/white"
+        android:orientation="vertical">
 
-</RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="4dp"
+            android:text="近一个月学习时间趋势"
+            android:textColor="@color/color_black"
+            android:textSize="12sp"/>
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/chart_learn_time"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:padding="4dp"
+            android:text="各个课程所占的比例"
+            android:textColor="@color/color_black"
+            android:textSize="12sp"/>
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/chart_learn_ratio"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"/>
+
+    </LinearLayout>
+
+
+</ScrollView>

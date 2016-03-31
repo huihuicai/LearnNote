@@ -1,20 +1,23 @@
 package com.note.learn;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.ecloud.pulltozoomview.PullToZoomScrollViewEx;
-import com.note.learn.fragment.AnaslysisFragment;
-import com.note.learn.fragment.MineFragment;
-import com.note.learn.fragment.RecordFragment;
+import com.note.learn.activity.BaseActivity;
+import com.note.learn.enums.ActivityType;
+import com.note.learn.fragment.MainAnaslysisFragment;
+import com.note.learn.fragment.MainMineFragment;
+import com.note.learn.fragment.MainRecordFragment;
+import com.note.learn.utils.Constant;
 import com.note.learn.utils.ScreenUtil;
 
 import java.util.Calendar;
@@ -22,7 +25,6 @@ import java.util.TimeZone;
 
 public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener, View.OnClickListener {
 
-    private FrameLayout mContentLayout;
     private TextView mTvCountDown, mTvCurrentDay, mTvCurrentMonth, mTvCurrentWeek, mTvWipeCard;
     private FragmentTransaction mTransaction;
 
@@ -47,12 +49,11 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         scrollViewEx.setZoomView(zoomView);
         scrollViewEx.setScrollContentView(content);
 
-        RecordFragment fragment = new RecordFragment();
+        MainRecordFragment fragment = new MainRecordFragment();
         mTransaction = getSupportFragmentManager().beginTransaction();
         mTransaction.replace(R.id.content_layout, fragment);
         mTransaction.commitAllowingStateLoss();
 
-        mContentLayout = (FrameLayout) content.findViewById(R.id.content_layout);
         mTvCountDown = (TextView) header.findViewById(R.id.tv_header_count_down);
         mTvCurrentDay = (TextView) header.findViewById(R.id.tv_current_day);
         mTvCurrentMonth = (TextView) header.findViewById(R.id.tv_current_month);
@@ -104,13 +105,13 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         Fragment fragment = null;
         switch (checkedId) {
             case R.id.rb_record:
-                fragment = new RecordFragment();
+                fragment = new MainRecordFragment();
                 break;
             case R.id.rb_analysis:
-                fragment = new AnaslysisFragment();
+                fragment = new MainAnaslysisFragment();
                 break;
             case R.id.rb_mine:
-                fragment = new MineFragment();
+                fragment = new MainMineFragment();
                 break;
         }
 
@@ -125,6 +126,9 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_calendar:
+                Intent intent = new Intent(MainActivity.this, BaseActivity.class);
+                intent.putExtra(Constant.ACTIVITY_TYPE, ActivityType.CalendarFragment);
+                startActivity(intent);
                 break;
             case R.id.btn_share:
                 break;
