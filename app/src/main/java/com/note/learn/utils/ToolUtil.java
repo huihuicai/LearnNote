@@ -17,4 +17,24 @@ public class ToolUtil {
             return 31;
         }
     }
+
+    public static int[] getNextMonth(int year, int month) {
+        if (month == 12) {
+            year = year + 1;
+            month = 1;
+        }else{
+            month = month+1;
+        }
+        return new int[]{year, month};
+    }
+
+    public static int[] getPreMonth(int year,int month){
+        if(month == 1){
+            year = year -1;
+            month = 12;
+        }else {
+            month = month-1;
+        }
+        return new int[]{year, month};
+    }
 }

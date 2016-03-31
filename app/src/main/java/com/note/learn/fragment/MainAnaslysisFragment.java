@@ -35,8 +35,6 @@ public class MainAnaslysisFragment extends Fragment {
     private LineChart mLineChart;
     private PieChart mPieChart;
 
-    //    private LineData mLineChartData;
-//    private PieData mPieChartData;
     private String[] mCourseType = {"财务管理", "经济学", "审计", "税法"};
 
     @Override
