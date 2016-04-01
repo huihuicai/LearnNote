@@ -1,14 +1,14 @@
-package com.note.learn.view;
+package com.note.learn.fragment;
 
-import android.content.Context;
 import android.graphics.Color;
-import android.util.AttributeSet;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.TextView;
 
@@ -20,28 +20,71 @@ import java.util.Calendar;
 /**
  * Created by wanghui on 2016/3/31.
  */
-public class CalendarView extends FrameLayout {
+public class CalendarViewFragment extends Fragment implements View.OnClickListener {
 
-    private LayoutInflater mInflater;
     private GridView mGridView;
+    private TextView mTvCalendarDate;
+    private Calendar mCal = Calendar.getInstance();
+
     private CalendarAdapter mAdapter;
+    private LayoutInflater mInflater;
+    private int mYear;
+    private int mMonth;
 
-    public CalendarView(Context context) {
-        super(context);
-        initWidget(context);
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        mInflater = inflater;
+        View view = inflater.inflate(R.layout.fragment_calendar, container, false);
+        initWidget(view);
+        switchCalendar(false, false);
+        return view;
     }
 
-    public CalendarView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        initWidget(context);
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        switchCalendar(false, false);
     }
 
-    private void initWidget(Context context) {
-        mInflater = LayoutInflater.from(context);
-        View view = mInflater.inflate(R.layout.view_calendar_layout, null);
-        mGridView = (GridView) view.findViewById(R.id.gv_calendar);
+    private void initWidget(View v) {
+        mTvCalendarDate = (TextView) v.findViewById(R.id.tv_calendar_date);
+        mGridView = (GridView) v.findViewById(R.id.gv_calendar);
         mAdapter = new CalendarAdapter();
         mGridView.setAdapter(mAdapter);
+        v.findViewById(R.id.iv_left_arrow).setOnClickListener(this);
+        v.findViewById(R.id.iv_right_arrow).setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.iv_left_arrow:
+                switchCalendar(true, false);
+                break;
+            case R.id.iv_right_arrow:
+                switchCalendar(false, true);
+                break;
+        }
+    }
+
+
+    private void switchCalendar(boolean isPre, boolean isNext) {
+        if (isNext && !isPre) {
+            int[] data = ToolUtil.getNextMonth(mYear, mMonth);
+            mYear = data[0];
+            mMonth = data[1];
+        } else if (!isNext && isPre) {
+            int[] data = ToolUtil.getPreMonth(mYear, mMonth);
+            mYear = data[0];
+            mMonth = data[1];
+        } else {
+            mYear = mCal.get(Calendar.YEAR);
+            mMonth = mCal.get(Calendar.MONTH) + 1;
+        }
+        String month = mMonth > 9 ? String.valueOf(mMonth) : "0" + mMonth;
+        mTvCalendarDate.setText(mYear + "年" + month + "月");
+        setCalendarData(mYear, mMonth, null);
     }
 
     public void setCalendarData(int year, int month, boolean[] select) {
@@ -57,9 +100,8 @@ public class CalendarView extends FrameLayout {
         int minRow = (currentMonthNum + firstPosition) % 7;
         int row = (minRow == 0 ? 0 : 1) + (currentMonthNum + firstPosition) / 7;
         int firstNum = preMonthNum - firstPosition;
-        Log.e("setData","row="+row+",firstNum="+firstNum+",firstPosition="+firstPosition+",currentMonthNum="+currentMonthNum);
-        mAdapter.setData(row, firstNum, firstPosition, currentMonthNum,select);
-        this.postInvalidate();
+        Log.e("setData", "row=" + row + ",firstNum=" + firstNum + ",firstPosition=" + firstPosition + ",currentMonthNum=" + currentMonthNum);
+        mAdapter.setData(row, firstNum, firstPosition, currentMonthNum, select);
     }
 
     private class CalendarAdapter extends BaseAdapter {

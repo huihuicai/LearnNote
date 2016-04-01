@@ -18,6 +18,7 @@ import com.note.learn.fragment.MainAnaslysisFragment;
 import com.note.learn.fragment.MainMineFragment;
 import com.note.learn.fragment.MainRecordFragment;
 import com.note.learn.utils.Constant;
+import com.note.learn.utils.DialogUtil;
 import com.note.learn.utils.ScreenUtil;
 
 import java.util.Calendar;
@@ -131,6 +132,12 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
                 startActivity(intent);
                 break;
             case R.id.btn_share:
+                DialogUtil.shareDailog(MainActivity.this, new DialogUtil.OnDialogClickListener() {
+                    @Override
+                    public void onclick() {
+
+                    }
+                });
                 break;
             case R.id.tv_swipe_card:
                 break;
