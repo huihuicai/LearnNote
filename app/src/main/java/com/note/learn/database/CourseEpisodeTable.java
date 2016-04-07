@@ -16,10 +16,10 @@ public class CourseEpisodeTable {
 
     public static void createTable(SQLiteDatabase db) {
         StringBuilder builder = new StringBuilder();
-        builder.append(DbUtil.SQL_CREATE_HEADER).append(TABLE_NAME).append(DbUtil.SQL_LEFT_BRACKET).append(COLUMN_ID).append(DbUtil.SQL_INTEGER_PRIMARY_KEY).append(DbUtil.SQL_COMMA_SYMBOL)
-                .append(COLUMN_COURSE_ID).append(DbUtil.SQL_INTEGER).append(DbUtil.SQL_NOT_NULL).append(DbUtil.SQL_COMMA_SYMBOL).append(COLUMN_COURSE_NAME).append(DbUtil.SQL_TEXT).append(DbUtil.SQL_NOT_NULL).append(DbUtil.SQL_COMMA_SYMBOL)
-                .append(COLUMN_EPISODE_NAME).append(DbUtil.SQL_TEXT).append(DbUtil.SQL_NOT_NULL).append(DbUtil.SQL_COMMA_SYMBOL)
-                .append(COLUMN_EPISODE_TIME).append(DbUtil.SQL_INTEGER).append(DbUtil.SQL_NOT_NULL).append(DbUtil.SQL_RIGHT_BRACKET);
+        builder.append(DBUtil.SQL_CREATE_HEADER).append(TABLE_NAME).append(DBUtil.SQL_LEFT_BRACKET).append(COLUMN_ID).append(DBUtil.SQL_INTEGER_PRIMARY_KEY).append(DBUtil.SQL_COMMA_SYMBOL)
+                .append(COLUMN_COURSE_ID).append(DBUtil.SQL_INTEGER).append(DBUtil.SQL_NOT_NULL).append(DBUtil.SQL_COMMA_SYMBOL).append(COLUMN_COURSE_NAME).append(DBUtil.SQL_TEXT).append(DBUtil.SQL_NOT_NULL).append(DBUtil.SQL_COMMA_SYMBOL)
+                .append(COLUMN_EPISODE_NAME).append(DBUtil.SQL_TEXT).append(DBUtil.SQL_NOT_NULL).append(DBUtil.SQL_COMMA_SYMBOL)
+                .append(COLUMN_EPISODE_TIME).append(DBUtil.SQL_INTEGER).append(DBUtil.SQL_NOT_NULL).append(DBUtil.SQL_RIGHT_BRACKET);
         db.execSQL(builder.toString());
     }
 }

@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.note.learn.R;
+
 /**
  * Created by wanghui on 2016/3/31.
  */
@@ -15,6 +17,7 @@ public class PracticePlanFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+        View view = inflater.inflate(R.layout.fragment_plan_or_record, container, false);
+        return view;
     }
 }
