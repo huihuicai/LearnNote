@@ -6,4 +6,5 @@ package com.note.learn.utils;
 public class Constant {
 
     public final static String ACTIVITY_TYPE = "activity_type";
+
 }

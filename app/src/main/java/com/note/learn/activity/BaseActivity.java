@@ -17,7 +17,6 @@ import com.note.learn.utils.ScreenUtil;
  * Created by wanghui on 2016/3/30.
  */
 public class BaseActivity extends AppCompatActivity implements View.OnClickListener {
-
     private TextView mTvTitle;
     private ActivityType mCurrentType;
 
