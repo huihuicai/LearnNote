@@ -2,35 +2,29 @@ package com.note.learn.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.note.learn.R;
-import com.note.learn.view.CalendarView;
-
-import java.util.Calendar;
 
 /**
  * Created by wanghui on 2016/3/31.
  */
 public class FavoriteFragment extends Fragment {
 
-    private CalendarView mCalendarView;
+    private TabLayout mTabLayout;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_favorite, container, false);
-        mCalendarView = (CalendarView) view.findViewById(R.id.view_calendar);
-        mCalendarView.setOnDataChangeListener(new CalendarView.OnDataChangeListener() {
-            @Override
-            public void dataChange(int year, int month) {
-                mCalendarView.setCalendarData(year,month,null);
-            }
-        });
+        View view = inflater.inflate(R.layout.fragment_favorite,container,false);
+        mTabLayout = (TabLayout) view.findViewById(R.id.tabs);
+        mTabLayout.setLayoutMode(TabLayout.MODE_FIXED);
+        mTabLayout.addTab(mTabLayout.newTab().setText("详情"));
+        mTabLayout.addTab(mTabLayout.newTab().setText("资源"));
+        mTabLayout.addTab(mTabLayout.newTab().setText("评论"));
         return view;
     }
-
-
 }
