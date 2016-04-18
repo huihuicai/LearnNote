@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         mTvCurrentDay = (TextView) header.findViewById(R.id.tv_current_day);
         mTvCurrentMonth = (TextView) header.findViewById(R.id.tv_current_month);
         mTvCurrentWeek = (TextView) header.findViewById(R.id.tv_current_week);
+        mTvWipeCard = (TextView) header.findViewById(R.id.tv_swipe_card);
 
         header.findViewById(R.id.btn_calendar).setOnClickListener(this);
         header.findViewById(R.id.btn_share).setOnClickListener(this);
@@ -140,6 +141,8 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
                 });
                 break;
             case R.id.tv_swipe_card:
+                mTvWipeCard.setText("今天已打卡");
+                mTvWipeCard.setBackgroundResource(R.drawable.oval_white_border);
                 break;
         }
     }
