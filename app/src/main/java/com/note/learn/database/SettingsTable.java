@@ -29,10 +29,11 @@ public class SettingsTable {
     public static final String COLUMN_SETTING_ID = "setting_id";
     public static final String COLUMN_SETTING_NAME = "setting_name";
     public static final String COLUMN_SETTING_STATUS = "setting_status";
+    public static final String COLUMN_SETTING_VALUE = "setting_value";
 
     public static void createTable(SQLiteDatabase db) {
         StringBuilder builder = new StringBuilder();
-        builder.append(DBUtil.SQL_CREATE_HEADER).append(TABLE_NAME).append(DBUtil.SQL_LEFT_BRACKET).append(COLUMN_ID).append(DBUtil.SQL_INTEGER_PRIMARY_KEY).append(DBUtil.SQL_COMMA_SYMBOL).append(COLUMN_SETTING_ID).append(DBUtil.SQL_INTEGER).append(DBUtil.SQL_NOT_NULL).append(DBUtil.SQL_COMMA_SYMBOL).append(COLUMN_SETTING_NAME).append(DBUtil.SQL_TEXT).append(DBUtil.SQL_NOT_NULL).append(DBUtil.SQL_COMMA_SYMBOL).append(COLUMN_SETTING_STATUS).append(DBUtil.SQL_INTEGER).append(DBUtil.SQL_NOT_NULL).append(DBUtil.SQL_RIGHT_BRACKET);
+        builder.append(DBUtil.SQL_CREATE_HEADER).append(TABLE_NAME).append(DBUtil.SQL_LEFT_BRACKET).append(COLUMN_ID).append(DBUtil.SQL_INTEGER_PRIMARY_KEY).append(DBUtil.SQL_COMMA_SYMBOL).append(COLUMN_SETTING_ID).append(DBUtil.SQL_INTEGER).append(DBUtil.SQL_NOT_NULL).append(DBUtil.SQL_COMMA_SYMBOL).append(COLUMN_SETTING_NAME).append(DBUtil.SQL_TEXT).append(DBUtil.SQL_NOT_NULL).append(DBUtil.SQL_COMMA_SYMBOL).append(COLUMN_SETTING_STATUS).append(DBUtil.SQL_INTEGER).append(DBUtil.SQL_NOT_NULL).append(DBUtil.SQL_COMMA_SYMBOL).append(COLUMN_SETTING_VALUE).append(DBUtil.SQL_TEXT).append(DBUtil.SQL_NOT_NULL).append(DBUtil.SQL_RIGHT_BRACKET);
         db.execSQL(builder.toString());
     }
 
@@ -44,6 +45,7 @@ public class SettingsTable {
         cv.put(COLUMN_SETTING_ID, bean.getmSettingId());
         cv.put(COLUMN_SETTING_NAME, bean.getmSettingName());
         cv.put(COLUMN_SETTING_STATUS, bean.getmSettingStatus());
+        cv.put(COLUMN_SETTING_VALUE, bean.getmSettingValue());
         SQLiteDatabase db = DBHelper.getDateBase(context);
         long row = db.update(TABLE_NAME, cv, COLUMN_SETTING_ID + "=?", new String[]{String.valueOf(bean.getmSettingId())});
         if (row > 0) {
@@ -71,11 +73,13 @@ public class SettingsTable {
         int id = c.getColumnIndex(COLUMN_SETTING_ID);
         int name = c.getColumnIndex(COLUMN_SETTING_NAME);
         int status = c.getColumnIndex(COLUMN_SETTING_STATUS);
+        int value = c.getColumnIndex(COLUMN_SETTING_VALUE);
         while (c.moveToNext()) {
             bean = new SettingBean();
             bean.setmSettingId(c.getInt(id));
             bean.setmSettingName(c.getString(name));
             bean.setmSettingStatus(c.getInt(status));
+            bean.setmSettingValue(c.getString(value));
             allStatus.add(bean);
         }
         if (!c.isClosed()) {

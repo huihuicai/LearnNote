@@ -8,6 +8,7 @@ public class SettingBean {
     private int mSettingId;
     private String mSettingName;
     private int mSettingStatus;
+    private String mSettingValue;
 
     public int getmSettingId() {
         return mSettingId;
@@ -31,5 +32,13 @@ public class SettingBean {
 
     public void setmSettingStatus(int mSettingStatus) {
         this.mSettingStatus = mSettingStatus;
+    }
+
+    public String getmSettingValue() {
+        return mSettingValue;
+    }
+
+    public void setmSettingValue(String mSettingValue) {
+        this.mSettingValue = mSettingValue;
     }
 }

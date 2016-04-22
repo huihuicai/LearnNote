@@ -22,6 +22,7 @@
         android:orientation="vertical">
 
         <RelativeLayout
+            android:id="@+id/rl_reset_notify"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin">
@@ -35,6 +36,7 @@
                 android:textSize="16sp"/>
 
             <TextView
+                android:id="@+id/tv_reset_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -49,6 +51,7 @@
             android:background="@color/color_divider"/>
 
         <RelativeLayout
+            android:id="@+id/rl_count_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin">
@@ -62,6 +65,7 @@
                 android:textSize="16sp"/>
 
             <TextView
+                android:id="@+id/tv_count_time_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -87,6 +91,7 @@
         android:orientation="vertical">
 
         <RelativeLayout
+            android:id="@+id/rl_everyday"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin">
@@ -100,6 +105,7 @@
                 android:textSize="16sp"/>
 
             <TextView
+                android:id="@+id/tv_everyday_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -114,6 +120,7 @@
             android:background="@color/color_divider"/>
 
         <RelativeLayout
+            android:id="@+id/rl_close_ad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin">
@@ -127,6 +134,7 @@
                 android:textSize="16sp"/>
 
             <TextView
+                android:id="@+id/tv_close_ad_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -141,6 +149,7 @@
             android:background="@color/color_divider"/>
 
         <RelativeLayout
+            android:id="@+id/rl_count_down"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin">
@@ -154,6 +163,7 @@
                 android:textSize="16sp"/>
 
             <TextView
+                android:id="@+id/tv_count_down_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
