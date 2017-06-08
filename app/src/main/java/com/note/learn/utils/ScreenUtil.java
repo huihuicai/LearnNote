@@ -9,6 +9,8 @@ import android.view.WindowManager;
 
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
+import qiu.niorgai.StatusBarCompat;
+
 /**
  * Created by wanghui on 2016/3/29.
  */
@@ -69,6 +71,12 @@ public class ScreenUtil {
             int barColor = (resColorId > 0) ? activity.getResources().getColor(resColorId) : color;
             tintManager.setStatusBarTintColor(barColor);
             tintManager.setStatusBarTintEnabled(true);
+        }
+    }
+
+    public static void initSystemBar(Activity activity){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            StatusBarCompat.translucentStatusBar(activity, true);
         }
     }
 }

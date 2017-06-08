@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="bottom"
-                android:gravity="bottom">
+    style="@style/system_bar_tint"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="bottom"
+    android:gravity="bottom">
 
     <ImageButton
         android:id="@+id/btn_calendar"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_margin="@dimen/fab_margin"
-        android:background="@drawable/icon_calendar"/>
+        android:background="@drawable/icon_calendar" />
 
     <ImageButton
         android:id="@+id/btn_share"
@@ -18,13 +19,13 @@
         android:layout_height="24dp"
         android:layout_alignParentRight="true"
         android:layout_margin="@dimen/fab_margin"
-        android:background="@drawable/icon_share"/>
+        android:background="@drawable/icon_share" />
 
     <TextView
         android:id="@+id/tv_header_count_down"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true" />
 
     <RelativeLayout
         android:id="@+id/date_layout"
@@ -43,7 +44,7 @@
             android:gravity="center"
             android:text="29"
             android:textColor="@android:color/white"
-            android:textSize="40sp"/>
+            android:textSize="40sp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -60,7 +61,7 @@
                 android:gravity="center"
                 android:text="3月"
                 android:textColor="@android:color/white"
-                android:textSize="14sp"/>
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv_current_week"
@@ -70,7 +71,7 @@
                 android:gravity="center"
                 android:text="星期二"
                 android:textColor="@android:color/white"
-                android:textSize="14sp"/>
+                android:textSize="14sp" />
         </LinearLayout>
 
         <TextView
@@ -86,8 +87,6 @@
             android:paddingTop="2dp"
             android:text="打卡"
             android:textColor="@android:color/white"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
     </RelativeLayout>
-
-
 </RelativeLayout>
