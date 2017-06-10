@@ -1,5 +1,8 @@
 package com.note.learn.fragment;
 
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -32,6 +35,12 @@ public class SettingFragment extends BaseFragment {
     @Override
     protected void init() {
 
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        showDialog();
     }
 
     @OnClick({R.id.rl_reset_notify, R.id.rl_count_time, R.id.rl_everyday, R.id.rl_close_ad, R.id.rl_count_down})

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/rl_information"
@@ -19,7 +19,7 @@
             android:layout_centerVertical="true"
             android:layout_margin="10dp"
             android:scaleType="centerInside"
-            android:src="@drawable/icon_photo_default"/>
+            android:src="@drawable/icon_photo_default" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:text="昵称"
                 android:textColor="@color/color_black"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -41,7 +41,7 @@
                 android:layout_marginTop="4dp"
                 android:text="修改个人信息"
                 android:textColor="@color/color_gray"
-                android:textSize="14sp"/>
+                android:textSize="14sp" />
         </LinearLayout>
     </RelativeLayout>
 
@@ -55,128 +55,80 @@
 
         <RelativeLayout
             android:id="@+id/rl_setting"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp">
+            style="@style/style_item_common">
 
             <ImageView
                 android:id="@+id/iv_setting"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_margin="10dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/icon_setting"/>
+                style="@style/style_item_common_img"
+                android:src="@drawable/icon_setting" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/iv_setting"
-                android:orientation="vertical">
+                style="@style/style_item_common_right"
+                android:layout_toRightOf="@id/iv_setting">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="设置"
-                    android:textColor="@color/color_black"
-                    android:textSize="16sp"/>
+                    style="@style/style_item_common_title"
+                    android:text="设置" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="部分功能设置"
-                    android:textColor="@color/color_gray"
-                    android:textSize="14sp"/>
+                    style="@style/style_item_common_subtitle"
+                    android:text="部分功能设置" />
             </LinearLayout>
         </RelativeLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:background="@color/color_divider"/>
+            android:background="@color/color_divider" />
 
         <RelativeLayout
             android:id="@+id/rl_favorite"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp">
+            style="@style/style_item_common">
 
             <ImageView
                 android:id="@+id/iv_favorite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_margin="10dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/icon_favorite"/>
+                style="@style/style_item_common_img"
+                android:src="@drawable/icon_favorite" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/iv_favorite"
-                android:orientation="vertical">
+                style="@style/style_item_common_right"
+                android:layout_toRightOf="@id/iv_favorite">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="收藏"
-                    android:textColor="@color/color_black"
-                    android:textSize="16sp"/>
+                    style="@style/style_item_common_title"
+                    android:text="收藏" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="记录收藏重点"
-                    android:textColor="@color/color_gray"
-                    android:textSize="14sp"/>
+                    style="@style/style_item_common_subtitle"
+                    android:text="记录收藏重点" />
             </LinearLayout>
         </RelativeLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:background="@color/color_divider"/>
+            android:background="@color/color_divider" />
 
         <RelativeLayout
             android:id="@+id/rl_about"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp">
+            style="@style/style_item_common">
 
             <ImageView
                 android:id="@+id/iv_about"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_margin="10dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/icon_about"/>
+                style="@style/style_item_common_img"
+                android:src="@drawable/icon_about" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/iv_about"
-                android:orientation="vertical">
+                style="@style/style_item_common_right"
+                android:layout_toRightOf="@id/iv_about">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="关于"
-                    android:textColor="@color/color_black"
-                    android:textSize="16sp"/>
+                    style="@style/style_item_common_title"
+                    android:text="关于" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="与APP相关"
-                    android:textColor="@color/color_gray"
-                    android:textSize="14sp"/>
+                    style="@style/style_item_common_subtitle"
+                    android:text="与APP相关" />
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>

@@ -13,30 +13,70 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="system_bar_tint">
-        <!--<item name="android:fitsSystemWindows">true</item>
-        <item name="android:clipToPadding">true</item>-->
         <item name="android:paddingTop">@dimen/padding_top</item>
     </style>
 
+    <!--提示框-->
     <style name="dialog_style" parent="@android:style/Theme.Dialog">
         <item name="android:windowFrame">@android:color/transparent</item>
         <item name="android:windowNoTitle">true</item>
-        <!-- 不全屏，居中显示 -->
         <item name="android:windowFullscreen">false</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowIsFloating">true</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
-
+    <!--dialog底部样式-->
     <style name="dialog_bottom_style" parent="@android:style/Theme.Dialog">
         <item name="@android:windowEnterAnimation">@anim/slide_in_from_bottom</item>
         <item name="@android:windowExitAnimation">@anim/slide_out_to_bottom</item>
     </style>
 
+    <!--dialog的样式-->
+    <style name="dialog_fragment_style" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <!--样式-->
+    <style name="style_item_common">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+        <item name="android:padding">10dp</item>
+    </style>
+
+    <style name="style_item_common_img">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:scaleType">centerInside</item>
+    </style>
+
+    <style name="style_item_common_right">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="style_item_common_title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/color_black</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="style_item_common_subtitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/color_gray</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:textSize">14sp</item>
+    </style>
 </resources>
