@@ -23,21 +23,21 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@android:color/white"
-        android:orientation="horizontal"
-        android:padding="4dp">
+        android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/rb_record"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@null"
+            android:background="?android:attr/selectableItemBackground"
             android:button="@null"
             android:checked="true"
             android:drawableTop="@drawable/btn_record_selector"
             android:gravity="center"
+            android:padding="4dp"
             android:text="@string/navigation_record"
-            android:textColor="@drawable/tab_color_selector"
+            android:textColor="@color/tab_color_selector"
             android:textSize="14sp" />
 
         <RadioButton
@@ -45,12 +45,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@null"
+            android:background="?android:attr/selectableItemBackground"
             android:button="@null"
-            android:drawableTop="@drawable/btn_anslysis_selector"
+            android:drawableTop="@drawable/btn_analysis_selector"
             android:gravity="center"
+            android:padding="4dp"
             android:text="@string/navigation_analysis"
-            android:textColor="@drawable/tab_color_selector"
+            android:textColor="@color/tab_color_selector"
             android:textSize="14sp" />
 
         <RadioButton
@@ -58,12 +59,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@null"
+            android:background="?android:attr/selectableItemBackground"
             android:button="@null"
             android:drawableTop="@drawable/btn_mine_selector"
             android:gravity="center"
+            android:padding="4dp"
             android:text="@string/navigation_mine"
-            android:textColor="@drawable/tab_color_selector"
+            android:textColor="@color/tab_color_selector"
             android:textSize="14sp" />
     </RadioGroup>
 

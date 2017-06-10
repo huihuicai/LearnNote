@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/tab_1"
+        android:icon="@drawable/btn_record_selector"
+        android:title="@string/navigation_record" />
+    <item
+        android:id="@+id/tab_2"
+        android:icon="@drawable/btn_analysis_selector"
+        android:title="@string/navigation_analysis" />
+
+    <item
+        android:id="@+id/tab_3"
+        android:icon="@drawable/btn_mine_selector"
+        android:title="@string/navigation_mine" />
+</menu>

@@ -3,9 +3,15 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/color_red</item>
+        <item name="colorPrimaryDark">@color/color_red</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <!--底部的navigation的样式-->
+    <style name="BottomNavigation">
+        <item name="android:background">@android:color/white</item>
+        <item name="itemIconTint">@color/tab_color_selector</item>
+        <item name="itemTextColor">@color/tab_color_selector</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
