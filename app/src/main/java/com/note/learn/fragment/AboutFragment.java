@@ -4,27 +4,28 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.note.learn.R;
 
+import butterknife.BindView;
+
 /**
  * Created by wanghui on 2016/3/31.
  */
-public class AboutFragment extends Fragment {
+public class AboutFragment extends BaseFragment {
 
-    private TextView mTvVersion;
+    @BindView(R.id.tv_version_code)
+    TextView tvVersionCode;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_about, container, false);
-        mTvVersion = (TextView) view.findViewById(R.id.tv_version_code);
-        return view;
+    protected int getLayout() {
+        return R.layout.fragment_about;
+    }
+
+    @Override
+    protected void init() {
+
     }
 
     @Override
@@ -46,7 +47,7 @@ public class AboutFragment extends Fragment {
 
         if (packageInfo != null) {
             String versionName = packageInfo.versionName;
-            mTvVersion.setText("当前版本v" + versionName);
+            tvVersionCode.setText("当前版本v" + versionName);
         }
     }
 }

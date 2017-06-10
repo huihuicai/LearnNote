@@ -1,10 +1,9 @@
 package com.note.learn.fragment;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,33 +13,38 @@ import android.widget.TextView;
 
 import com.note.learn.R;
 import com.note.learn.utils.ToolUtil;
-import com.note.learn.view.CalendarView;
 
 import java.util.Calendar;
 import java.util.TimeZone;
 
+import butterknife.BindView;
+import butterknife.OnClick;
+
 /**
  * Created by wanghui on 2016/3/31.
  */
-public class CalendarFragment extends Fragment implements View.OnClickListener {
+public class CalendarFragment extends BaseFragment {
 
-    private GridView mGridView;
-    private TextView mTvCalendarDate;
+    @BindView(R.id.tv_calendar_date)
+    TextView tvCalendarDate;
+    @BindView(R.id.gv_calendar)
+    GridView gvCalendar;
     private Calendar mCal = Calendar.getInstance();
 
     private CalendarAdapter mAdapter;
-    private LayoutInflater mInflater;
     private int mYear;
     private int mMonth;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mInflater = inflater;
-        View view = inflater.inflate(R.layout.fragment_calendar, container, false);
-        initWidget(view);
+    protected int getLayout() {
+        return R.layout.fragment_calendar;
+    }
+
+    @Override
+    protected void init() {
+        mAdapter = new CalendarAdapter(mContext);
+        gvCalendar.setAdapter(mAdapter);
         switchCalendar(false, false);
-        return view;
     }
 
     @Override
@@ -48,28 +52,6 @@ public class CalendarFragment extends Fragment implements View.OnClickListener {
         super.onActivityCreated(savedInstanceState);
         switchCalendar(false, false);
     }
-
-    private void initWidget(View v) {
-        mTvCalendarDate = (TextView) v.findViewById(R.id.tv_calendar_date);
-        mGridView = (GridView) v.findViewById(R.id.gv_calendar);
-        mAdapter = new CalendarAdapter();
-        mGridView.setAdapter(mAdapter);
-        v.findViewById(R.id.iv_left_arrow).setOnClickListener(this);
-        v.findViewById(R.id.iv_right_arrow).setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.iv_left_arrow:
-                switchCalendar(true, false);
-                break;
-            case R.id.iv_right_arrow:
-                switchCalendar(false, true);
-                break;
-        }
-    }
-
 
     private void switchCalendar(boolean isPre, boolean isNext) {
         if (isNext && !isPre) {
@@ -85,7 +67,7 @@ public class CalendarFragment extends Fragment implements View.OnClickListener {
             mMonth = mCal.get(Calendar.MONTH) + 1;
         }
         String month = mMonth > 9 ? String.valueOf(mMonth) : "0" + mMonth;
-        mTvCalendarDate.setText(mYear + "年" + month + "月");
+        tvCalendarDate.setText(mYear + "年" + month + "月");
         setCalendarData(mYear, mMonth);
     }
 
@@ -114,9 +96,26 @@ public class CalendarFragment extends Fragment implements View.OnClickListener {
         mAdapter.setData(row, firstNum, firstPosition, currentMonthNum, select);
     }
 
+    @OnClick({R.id.iv_left_arrow, R.id.iv_right_arrow})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.iv_left_arrow:
+                switchCalendar(true, false);
+                break;
+            case R.id.iv_right_arrow:
+                switchCalendar(false, true);
+                break;
+        }
+    }
+
     private class CalendarAdapter extends BaseAdapter {
         private boolean[] mSelected;
         private int mRow, mFirstNum, mFirstPosition, mMaxDay;
+        private LayoutInflater mInflater;
+
+        public CalendarAdapter(Context context) {
+            mInflater = LayoutInflater.from(context);
+        }
 
         public void setData(int row, int firstNum, int firstPosition, int maxDay, boolean[] select) {
             mRow = row;
@@ -165,7 +164,7 @@ public class CalendarFragment extends Fragment implements View.OnClickListener {
             }
 
             if (mSelected != null) {
-                if (position >= mFirstPosition && position < mMaxDay + mFirstPosition){
+                if (position >= mFirstPosition && position < mMaxDay + mFirstPosition) {
                     if (mSelected[position - mFirstPosition]) {
                         holder.mIvSelect.setVisibility(View.VISIBLE);
                         holder.mBgSelect.setVisibility(View.VISIBLE);
@@ -175,7 +174,7 @@ public class CalendarFragment extends Fragment implements View.OnClickListener {
                         holder.mBgSelect.setVisibility(View.GONE);
                         holder.mTvCalDay.setTextColor(getResources().getColor(R.color.color_black));
                     }
-                }else{
+                } else {
                     holder.mIvSelect.setVisibility(View.GONE);
                     holder.mBgSelect.setVisibility(View.GONE);
                     holder.mTvCalDay.setTextColor(getResources().getColor(R.color.color_gray));
@@ -187,7 +186,7 @@ public class CalendarFragment extends Fragment implements View.OnClickListener {
 
         class ViewHolder {
             TextView mTvCalDay;
-            View mIvSelect,mBgSelect;
+            View mIvSelect, mBgSelect;
         }
     }
 

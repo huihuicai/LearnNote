@@ -3,8 +3,6 @@ package com.note.learn.fragment;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,41 +25,44 @@ import java.util.Collections;
 import java.util.Random;
 import java.util.TimeZone;
 
+import butterknife.BindView;
+
 /**
  * Created by wanghui on 2016/3/30.
  */
-public class MainAnaslysisFragment extends Fragment {
+public class MainAnaslysisFragment extends BaseFragment {
 
-    private LineChart mLineChart;
-    private PieChart mPieChart;
+    @BindView(R.id.chart_learn_time)
+    LineChart chartLearnTime;
+    @BindView(R.id.chart_learn_ratio)
+    PieChart chartLearnRatio;
 
     private String[] mCourseType = {"财务管理", "经济学", "审计", "税法"};
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_anaslysis, container, false);
-        mLineChart = (LineChart) view.findViewById(R.id.chart_learn_time);
-        mPieChart = (PieChart) view.findViewById(R.id.chart_learn_ratio);
+    protected int getLayout() {
+        return R.layout.fragment_anaslysis;
+    }
 
-        mLineChart.setDrawGridBackground(false);
-        mLineChart.setDescription("变化趋势图");
-        mLineChart.setScaleEnabled(true);
-        mLineChart.setPinchZoom(false);
+    @Override
+    protected void init() {
+        chartLearnTime.setDrawGridBackground(false);
+        chartLearnTime.setDescription("变化趋势图");
+        chartLearnTime.setScaleEnabled(true);
+        chartLearnTime.setPinchZoom(false);
 
-        mPieChart.setUsePercentValues(true);
-        mPieChart.setDescription("课程学时所占比例");
-        mPieChart.setExtraOffsets(5, 10, 5, 5);
-        mPieChart.setDragDecelerationFrictionCoef(0.95f);
-
-        return view;
+        chartLearnRatio.setUsePercentValues(true);
+        chartLearnRatio.setDescription("课程学时所占比例");
+        chartLearnRatio.setExtraOffsets(5, 10, 5, 5);
+        chartLearnRatio.setDragDecelerationFrictionCoef(0.95f);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initChartData();
-        mLineChart.invalidate();
-        mPieChart.invalidate();
+        chartLearnTime.invalidate();
+        chartLearnRatio.invalidate();
     }
 
     private void initChartData() {
@@ -99,7 +100,7 @@ public class MainAnaslysisFragment extends Fragment {
         set.setValueTextSize(10);
         set.disableDashedLine();
         LineData mLineChartData = new LineData(xLineVals, set);
-        mLineChart.setData(mLineChartData);
+        chartLearnTime.setData(mLineChartData);
 
         ArrayList<String> xPieVals = new ArrayList<>();
         ArrayList<Entry> yPieVals = new ArrayList<>();
@@ -123,7 +124,6 @@ public class MainAnaslysisFragment extends Fragment {
         mPieChartData.setValueFormatter(new PercentFormatter());
         mPieChartData.setValueTextSize(12f);
         mPieChartData.setValueTextColor(Color.WHITE);
-        mPieChart.setData(mPieChartData);
+        chartLearnRatio.setData(mPieChartData);
     }
-
 }

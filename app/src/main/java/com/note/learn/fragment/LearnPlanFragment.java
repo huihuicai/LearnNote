@@ -12,12 +12,15 @@ import com.note.learn.R;
 /**
  * Created by wanghui on 2016/3/31.
  */
-public class LearnPlanFragment extends Fragment {
+public class LearnPlanFragment extends BaseFragment {
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_plan_or_record, container, false);
-        return view;
+    protected int getLayout() {
+        return R.layout.fragment_plan_or_record;
+    }
+
+    @Override
+    protected void init() {
+
     }
 }

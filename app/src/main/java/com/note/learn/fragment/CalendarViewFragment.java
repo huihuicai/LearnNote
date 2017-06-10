@@ -1,9 +1,9 @@
 package com.note.learn.fragment;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,28 +17,35 @@ import com.note.learn.utils.ToolUtil;
 
 import java.util.Calendar;
 
+import butterknife.BindView;
+import butterknife.OnClick;
+
 /**
  * Created by wanghui on 2016/3/31.
  */
-public class CalendarViewFragment extends Fragment implements View.OnClickListener {
+public class CalendarViewFragment extends BaseFragment {
 
-    private GridView mGridView;
-    private TextView mTvCalendarDate;
+    @BindView(R.id.tv_calendar_date)
+    TextView tvCalendarDate;
+    @BindView(R.id.gv_calendar)
+    GridView gvCalendar;
+
     private Calendar mCal = Calendar.getInstance();
-
     private CalendarAdapter mAdapter;
-    private LayoutInflater mInflater;
     private int mYear;
     private int mMonth;
 
-    @Nullable
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mInflater = inflater;
-        View view = inflater.inflate(R.layout.fragment_calendar, container, false);
-        initWidget(view);
+    protected int getLayout() {
+        return R.layout.fragment_calendar;
+    }
+
+    @Override
+    protected void init() {
+        mAdapter = new CalendarAdapter(mContext);
+        gvCalendar.setAdapter(mAdapter);
         switchCalendar(false, false);
-        return view;
     }
 
     @Override
@@ -47,18 +54,9 @@ public class CalendarViewFragment extends Fragment implements View.OnClickListen
         switchCalendar(false, false);
     }
 
-    private void initWidget(View v) {
-        mTvCalendarDate = (TextView) v.findViewById(R.id.tv_calendar_date);
-        mGridView = (GridView) v.findViewById(R.id.gv_calendar);
-        mAdapter = new CalendarAdapter();
-        mGridView.setAdapter(mAdapter);
-        v.findViewById(R.id.iv_left_arrow).setOnClickListener(this);
-        v.findViewById(R.id.iv_right_arrow).setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
+    @OnClick({R.id.iv_left_arrow, R.id.iv_right_arrow})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
             case R.id.iv_left_arrow:
                 switchCalendar(true, false);
                 break;
@@ -67,7 +65,6 @@ public class CalendarViewFragment extends Fragment implements View.OnClickListen
                 break;
         }
     }
-
 
     private void switchCalendar(boolean isPre, boolean isNext) {
         if (isNext && !isPre) {
@@ -83,7 +80,7 @@ public class CalendarViewFragment extends Fragment implements View.OnClickListen
             mMonth = mCal.get(Calendar.MONTH) + 1;
         }
         String month = mMonth > 9 ? String.valueOf(mMonth) : "0" + mMonth;
-        mTvCalendarDate.setText(mYear + "年" + month + "月");
+        tvCalendarDate.setText(mYear + "年" + month + "月");
         setCalendarData(mYear, mMonth, null);
     }
 
@@ -107,6 +104,11 @@ public class CalendarViewFragment extends Fragment implements View.OnClickListen
     private class CalendarAdapter extends BaseAdapter {
         private boolean[] mSelected;
         private int mRow, mFirstNum, mFirstPosition, mMaxDay;
+        private LayoutInflater mInflater;
+
+        public CalendarAdapter(Context context) {
+            mInflater = LayoutInflater.from(context);
+        }
 
         public void setData(int row, int firstNum, int firstPosition, int maxDay, boolean[] select) {
             mRow = row;

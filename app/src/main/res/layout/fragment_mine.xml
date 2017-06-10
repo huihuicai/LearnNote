@@ -98,7 +98,7 @@
             android:background="@color/color_divider"/>
 
         <RelativeLayout
-            android:id="@+id/rl__favorite"
+            android:id="@+id/rl_favorite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp">
@@ -142,7 +142,7 @@
             android:background="@color/color_divider"/>
 
         <RelativeLayout
-            android:id="@+id/rl__about"
+            android:id="@+id/rl_about"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp">
