@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.note.learn.view.SwipeMenuLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tv_title_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_black"
+            android:textSize="14sp"
+            tools:text="标题：" />
+
+        <TextView
+            android:id="@+id/tv_content_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_title_tip"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/color_black"
+            android:textSize="14sp"
+            tools:text="目标：" />
+
+        <TextView
+            android:id="@+id/tv_expire_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/color_black"
+            android:textSize="14sp"
+            tools:text="耗时：" />
+
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tv_title_tip"
+            android:layout_toRightOf="@+id/tv_title_tip"
+            android:textColor="@color/color_black"
+            android:textSize="14sp"
+            tools:text="标题" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tv_content_tip"
+            android:layout_toRightOf="@+id/tv_content_tip"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/color_black"
+            android:textSize="14sp"
+            tools:text="目标" />
+
+        <TextView
+            android:id="@+id/tv_expire"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tv_expire_tip"
+            android:layout_toRightOf="@+id/tv_expire_tip"
+            android:textColor="@color/color_black"
+            android:textSize="14sp"
+            tools:text="耗时" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_delete"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:background="@color/color_red"
+        android:gravity="center"
+        android:text="删除"
+        android:textSize="16sp" />
+</com.note.learn.view.SwipeMenuLayout>

@@ -30,6 +30,7 @@ public class PullScrollView extends ScrollView {
     private int mScaleViewHeight;
     private ViewGroup.LayoutParams mParams;
     private float mScale, mLastX, mLastY, mMoveDelta, mDumpFactor;
+    private boolean mIsDrag = false;
     private ScaleRunnable mScaleRunnable;
 
     public PullScrollView(Context context) {
@@ -70,21 +71,20 @@ public class PullScrollView extends ScrollView {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent event) {
-        int action = event.getAction();
+        int action = event.getActionMasked();
         switch (action) {
             case MotionEvent.ACTION_DOWN:
+                mIsDrag = false;
                 mLastX = event.getX();
                 mLastY = event.getY();
-                return true;
             case MotionEvent.ACTION_MOVE:
                 if (Math.abs(event.getY() - mLastY) > (Math.abs(event.getX() - mLastX))
-                        && Math.abs(event.getY() - mLastY) > 2 * mTouchSlop) {
-                    Log.e("ACTION_MOVE", "被认为是下拉");
-                    return true;
+                        && Math.abs(event.getY() - mLastY) > mTouchSlop) {
+                    mIsDrag = true;
                 }
                 break;
         }
-        return super.onInterceptTouchEvent(event);
+        return mIsDrag;
     }
 
 
@@ -97,10 +97,12 @@ public class PullScrollView extends ScrollView {
         int action = ev.getAction();
         switch (action) {
             case MotionEvent.ACTION_DOWN:
-                mLastY = ev.getY();
+                if (mIsDrag) {
+                    mLastY = ev.getY();
+                    return true;
+                }
                 break;
             case MotionEvent.ACTION_MOVE:
-                //如果delta>0说明是上移，反之下移
                 if (!mScaleRunnable.mIsFinished) {
                     mScaleRunnable.endScale();
                 }
@@ -116,7 +118,10 @@ public class PullScrollView extends ScrollView {
                 mLastY = ev.getY();
                 break;
             case MotionEvent.ACTION_UP:
-                mScaleRunnable.startScale(100, mScale);
+                if (mScale > MIN_SCALE && mIsDrag) {
+                    mScaleRunnable.startScale(100, mScale);
+                    mScale = MIN_SCALE;
+                }
                 break;
         }
         return super.onTouchEvent(ev);
@@ -181,7 +186,7 @@ public class PullScrollView extends ScrollView {
     private Interpolator mDumpInterpolator = new Interpolator() {
         @Override
         public float getInterpolation(float input) {
-            return (float) Math.pow(1 - input, 5);
+            return (float) Math.pow(1 - input, 3);
         }
     };
 }

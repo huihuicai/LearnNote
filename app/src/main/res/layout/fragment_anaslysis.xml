@@ -135,8 +135,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/fab_margin"
             android:layout_marginLeft="@dimen/fab_margin"
-            android:padding="4dp"
             android:text="学习趋势"
             android:textColor="@color/color_black"
             android:textSize="12sp" />
@@ -151,9 +151,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/fab_margin"
-            android:layout_marginTop="@dimen/fab_margin"
-            android:padding="4dp"
+            android:layout_margin="@dimen/fab_margin"
             android:text="课程占例"
             android:textColor="@color/color_black"
             android:textSize="12sp" />
