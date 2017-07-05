@@ -1,5 +1,152 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:id="@+id/content_layout"
-             xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"/>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_learn_plans"
+            style="@style/style_item_common">
+
+            <ImageView
+                android:id="@+id/iv_plans"
+                style="@style/style_item_common_img"
+                android:src="@drawable/icon_learn_plans" />
+
+            <LinearLayout
+                style="@style/style_item_common_right"
+                android:layout_toRightOf="@id/iv_plans">
+
+                <TextView
+                    style="@style/style_item_common_title"
+                    android:text="学习计划"/>
+
+                <TextView
+                    style="@style/style_item_common_subtitle"
+                    android:text="合理罗列总体目标计划" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_divider" />
+
+        <RelativeLayout
+            android:id="@+id/rl_course_plans"
+            style="@style/style_item_common">
+
+            <ImageView
+                android:id="@+id/iv_book_plans"
+                style="@style/style_item_common_img"
+                android:src="@drawable/icon_book_plans" />
+
+            <LinearLayout
+                style="@style/style_item_common_right"
+                android:layout_toRightOf="@id/iv_book_plans">
+
+                <TextView
+                    style="@style/style_item_common_title"
+                    android:text="课程计划" />
+
+                <TextView
+                    style="@style/style_item_common_subtitle"
+                    android:text="罗列对课程学习的计划"/>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_divider" />
+
+        <RelativeLayout
+            android:id="@+id/rl_practice_plans"
+            style="@style/style_item_common">
+
+            <ImageView
+                android:id="@+id/iv_practice_plans"
+                style="@style/style_item_common_img"
+                android:src="@drawable/icon_practice_plans" />
+
+            <LinearLayout
+                style="@style/style_item_common_right"
+                android:layout_toRightOf="@id/iv_practice_plans">
+
+                <TextView
+                    style="@style/style_item_common_title"
+                    android:text="巩固计划"/>
+
+                <TextView
+                    style="@style/style_item_common_subtitle"
+                    android:text="罗列对课程学习后，练习巩固的计划" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_course_record"
+            style="@style/style_item_common">
+
+            <ImageView
+                android:id="@+id/iv_book_record"
+                style="@style/style_item_common_img"
+                android:src="@drawable/icon_book_record" />
+
+            <LinearLayout
+                style="@style/style_item_common_right"
+                android:layout_toRightOf="@id/iv_book_record">
+
+                <TextView
+                    style="@style/style_item_common_title"
+                    android:text="课程学习记录" />
+
+                <TextView
+                    style="@style/style_item_common_subtitle"
+                    android:text="学完记录下来备忘" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_divider" />
+
+        <RelativeLayout
+            android:id="@+id/rl_practice_record"
+            style="@style/style_item_common">
+
+            <ImageView
+                android:id="@+id/iv_practice_record"
+                style="@style/style_item_common_img"
+                android:src="@drawable/icon_practice_record" />
+
+            <LinearLayout
+                style="@style/style_item_common_right"
+                android:layout_toRightOf="@id/iv_practice_record">
+
+                <TextView
+                    style="@style/style_item_common_title"
+                    android:text="巩固练习记录"/>
+
+                <TextView
+                    style="@style/style_item_common_subtitle"
+                    android:text="记录练习巩固的进度" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

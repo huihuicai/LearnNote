@@ -3,13 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.ecloud.pulltozoomview.PullToZoomScrollViewEx
-        android:id="@+id/pull_zoom_scroll"
+    <FrameLayout
+        android:id="@+id/fl_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/tab_layout"
-        android:background="@color/color_gray_bg"
-        android:scrollbars="none" />
+        android:layout_above="@+id/tab_layout" />
 
     <View
         android:layout_width="match_parent"

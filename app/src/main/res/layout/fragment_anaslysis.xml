@@ -1,50 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/fab_margin"
         android:layout_marginBottom="@dimen/fab_margin"
         android:background="@android:color/white"
         android:orientation="vertical">
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_main_one" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#88000000">
+
+                <TextView
+                    android:id="@+id/tv_learned_tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/fab_margin"
+                    android:text="本月已学习"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/tv_learned_tip"
+                    android:background="@drawable/circle_red_shape"
+                    android:gravity="center"
+                    android:text="10天"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_last_learn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="@dimen/fab_margin"
+                    android:layout_marginLeft="@dimen/fab_margin"
+                    android:text="最近学习时间"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+        </FrameLayout>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/oval_red_border"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_left_selector"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="周"
+                android:textColor="@color/radio_color_selector"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/color_red" />
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_middle_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:text="月"
+                android:textColor="@color/radio_color_selector"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/color_red" />
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_middle_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:text="半年"
+                android:textColor="@color/radio_color_selector"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/color_red" />
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_right_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:text="年"
+                android:textColor="@color/radio_color_selector"
+                android:textSize="14sp" />
+        </RadioGroup>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/fab_margin"
             android:padding="4dp"
-            android:text="近一个月学习时间趋势"
+            android:text="学习趋势"
             android:textColor="@color/color_black"
-            android:textSize="12sp"/>
+            android:textSize="12sp" />
 
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/chart_learn_time"
             android:layout_width="match_parent"
             android:layout_height="400dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"/>
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginTop="@dimen/fab_margin"
             android:padding="4dp"
-            android:text="各个课程所占的比例"
+            android:text="课程占例"
             android:textColor="@color/color_black"
-            android:textSize="12sp"/>
+            android:textSize="12sp" />
 
         <com.github.mikephil.charting.charts.PieChart
             android:id="@+id/chart_learn_ratio"
-            android:layout_gravity="center_horizontal"
             android:layout_width="300dp"
             android:layout_height="300dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"/>
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin" />
 
     </LinearLayout>
 
