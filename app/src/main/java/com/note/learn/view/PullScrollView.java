@@ -118,7 +118,7 @@ public class PullScrollView extends ScrollView {
                 mLastY = ev.getY();
                 break;
             case MotionEvent.ACTION_UP:
-                if (mScale > MIN_SCALE && mIsDrag) {
+                if (mScale >= MIN_SCALE && mIsDrag) {
                     mScaleRunnable.startScale(100, mScale);
                     mScale = MIN_SCALE;
                 }

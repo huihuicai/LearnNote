@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <ListView
-        android:id="@+id/lv_plan_or_record"
+    <com.note.learn.view.VRecyclerView
+        android:id="@+id/rv_learn_plan"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/btn_add"
@@ -18,5 +18,6 @@
         android:layout_margin="@dimen/fab_margin"
         android:src="@drawable/icon_add"
         app:backgroundTint="@color/color_red"
-        app:borderWidth="0dp"/>
+        app:borderWidth="0dp"
+        app:fabSize="normal" />
 </RelativeLayout>

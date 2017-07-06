@@ -1,18 +1,18 @@
 package com.note.learn.fragment;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.note.learn.R;
+import com.note.learn.view.VRecyclerView;
+
+import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * Created by wanghui on 2016/3/31.
  */
 public class CoursePlanFragment extends BaseFragment {
+
+    @BindView(R.id.rv_learn_plan)
+    VRecyclerView rvLearnPlan;
 
     @Override
     protected int getLayout() {
@@ -23,4 +23,10 @@ public class CoursePlanFragment extends BaseFragment {
     protected void init() {
 
     }
+
+    @OnClick(R.id.btn_add)
+    public void onViewClicked() {
+    }
+
+
 }
